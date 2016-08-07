@@ -4,7 +4,7 @@ import urlib2
 import threading
   
 sensetivity = 3  
-server_url = ""
+server_url = "barjews.net23.net/dummy/server.php"
 
 class Player(threading.Thread):
     global sensetivity, server_url
@@ -24,7 +24,7 @@ class Player(threading.Thread):
             if val >= sensetivity:
                 self.goals += 1
                 #send server a goal for player1 and wait for server response
-                params = "?player={}&goals={}".format(self.player_id, self.goals)
+                params = "?player={}".format(self.player_id)
                 response = urllib2.urlopen(server_url + params)
                 if "ok" in response.read():
                     print "ok"
